@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.twoSum = void 0;
+exports.twoSum1 = exports.twoSum = void 0;
 function twoSum(nums, target) {
     var answer = [];
     var _loop_1 = function (num) {
         var checkNumber = target - num;
-        if (nums.find(function (item) { return item === checkNumber; })) {
+        if (nums.find(function (item, index) { return item === checkNumber && index !== nums.indexOf(num); })) {
             var index1 = nums.indexOf(num);
             var index2 = nums.indexOf(checkNumber);
             answer.push(index1);
@@ -22,4 +22,25 @@ function twoSum(nums, target) {
     return answer;
 }
 exports.twoSum = twoSum;
+;
+function twoSum1(nums, target) {
+    var answer = [];
+    var _loop_2 = function (i) {
+        var checkNumber = target - nums[i];
+        if (nums.find(function (item, index) { return item === checkNumber && index !== i; })) {
+            var index1 = i;
+            var index2 = nums.findIndex(function (item, index) { return item === checkNumber && index !== i; });
+            answer.push(index1);
+            answer.push(index2);
+            return { value: answer };
+        }
+    };
+    for (var i = 0; i <= nums.length; i++) {
+        var state_2 = _loop_2(i);
+        if (typeof state_2 === "object")
+            return state_2.value;
+    }
+    return answer;
+}
+exports.twoSum1 = twoSum1;
 ;
