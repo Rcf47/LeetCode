@@ -23,4 +23,3 @@ function twoSum(nums, target) {
 }
 exports.twoSum = twoSum;
 ;
-console.log(twoSum([2, 7, 11, 15], 9));
