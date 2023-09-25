@@ -6,19 +6,19 @@ class ListNode {
 		this.next = next === undefined ? null : next;
 	}
 }
-export function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+export function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
 	const head: ListNode = new ListNode();
 	let curr: ListNode = head;
-	while (l1 && l2) {
-		if (l1.val < l2.val) {
-			curr.next = l1;
-			l1 = l1.next;
+	while (list1 && list2) {
+		if (list1.val < list2.val) {
+			curr.next = list1;
+			list1 = list1.next;
 		} else {
-			curr.next = l2;
-			l2 = l2.next;
+			curr.next = list2;
+			list2 = list2.next;
 		}
 		curr = curr.next;
 	}
-	curr.next = l1 || l2;
+	curr.next = list1 || list2;
 	return head.next;
 }
