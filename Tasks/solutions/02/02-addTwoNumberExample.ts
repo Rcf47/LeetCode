@@ -9,6 +9,7 @@ class ListNode {
 
 export function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
 	const dummyHead = new ListNode(0);
+	console.log(dummyHead);
 	let p = l1,
 		q = l2,
 		curr = dummyHead;
@@ -28,3 +29,7 @@ export function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNod
 	}
 	return dummyHead.next;
 }
+
+const case1 = { val: 2, next: { val: 4, next: { val: 3, next: null } } };
+const case2 = { val: 5, next: { val: 6, next: { val: 4, next: null } } };
+console.log(addTwoNumbers(case1, case2));
